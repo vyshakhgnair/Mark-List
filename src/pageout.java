@@ -1,18 +1,21 @@
+package src;
 
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.JOptionPane.*;
 
-class stdform extends JFrame {
+
+
+class page_out extends JFrame {
+    private static final LayoutManager SpringLayout = null;
     JLabel nm, m1, m2, m3, m4, m5;
     JLabel reg;
     JTextField nm1,regt, mt1, mt2, mt3, mt4, mt5;
-    JButton srch, submit;
+    JButton srch,back;
     Container c;
 
-    stdform() {
+    page_out() {
         super("STUDENT REGISTRATION");
         nm = new JLabel("NAME");
         m1 = new JLabel("MARK 1");
@@ -22,7 +25,7 @@ class stdform extends JFrame {
         m5 = new JLabel("MARK 5");
         reg = new JLabel("REG NUM");
         srch = new JButton("SEARCH");
-        submit = new JButton("SUBMIT");
+        back = new JButton("BACK");
         nm1=new JTextField();
         mt1 = new JTextField();
         mt2 = new JTextField();
@@ -39,13 +42,13 @@ class stdform extends JFrame {
         add(m5);
         add(nm1);
         add(regt);
+        add(back);
         add(mt1);
         add(mt2);
         add(mt3);
         add(mt4);
         add(mt5);
         add(srch);
-        add(submit);
         add(reg);
 
         c.setBackground(Color.decode("#422B84"));
@@ -78,12 +81,13 @@ class stdform extends JFrame {
         m5.setFont(new Font("Arial", Font.BOLD,20));
         m5.setForeground(Color.WHITE);
         
-        submit.setBounds(295,510,130,40);
-        submit.setFont(new Font("Arial", Font.BOLD,20));
-        submit.setForeground(Color.decode("#422BB4"));
 
         srch.setFont(new Font("Arial", Font.BOLD,20));
         srch.setForeground(Color.decode("#422BB4"));
+
+        back.setBounds(295,510,130,40);
+        back.setFont(new Font("Arial", Font.BOLD,20));
+        back.setForeground(Color.decode("#422BB4"));
 
         nm1.setBounds(220,90,280,30);
         regt.setBounds(220,150,130,30);
@@ -94,8 +98,21 @@ class stdform extends JFrame {
         mt4.setBounds(220,390,280,30);
         mt5.setBounds(220,450,280,30);
         setSize(600, 600);
-        setLayout(null);
+        setLayout(SpringLayout);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    new Mark().setVisible(true);
+            
+                } catch (Exception e) {
+                }            }
+        });
+
     }
+
+    
 }
+

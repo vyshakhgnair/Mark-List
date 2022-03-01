@@ -1,5 +1,5 @@
+package src;
 
-import  java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -23,16 +23,19 @@ class Mark extends JFrame
 
         head.setForeground(Color.WHITE);
         head.setFont(new Font("Arial", Font.BOLD,50));
+
+
         login.setBackground(Color.decode("#422BB4"));
         login.setForeground(Color.WHITE);
         login.setFont(new Font("Arial",Font.PLAIN,20));
-        login.setBorder(border);
+
+
         signup.setBackground(Color.decode("#422BB4"));
         signup.setForeground(Color.WHITE);
         signup.setFont(new Font("Arial",Font.PLAIN,20));
-        signup.setBorder(border);
         
         c=getContentPane();
+
         add(login);
         add(signup);
         add(head);
@@ -51,6 +54,16 @@ class Mark extends JFrame
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+
+
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new login().setVisible(true);
+            }
+        });
+
     }
+    
 
 }
