@@ -79,6 +79,11 @@ class signup extends JFrame {
                 uname1ActionPerformed(evt);
             }
         });
+        name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name1ActionPerformed(evt);
+            }
+        });
 
         passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,20 +110,23 @@ private void submitActionPerformed(ActionEvent evt) {
     try {
         String ab=uname1.getText();
         String pa=passwd.getText();
+        String nm=name1.getText();
         if(ab.equals("")) {
             JOptionPane.showMessageDialog(uname, "PLEASE ENTER USERNAME ");
         }
         else if (pa.equals("")) {
             JOptionPane.showMessageDialog(pass, "PLEASE ENTER PASSWORD ");
         }
+        else if (nm.equals("")) {
+            JOptionPane.showMessageDialog(pass, "PLEASE ENTER NAME ");
+        }
         else
         {
-        if (ab.equals("admin")&&pa.equals("123")) {
-            //JOptionPane.showMessageDialog(rootPane, "successful");
-            new page_out().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(rootPane,"username and password invalid");
-        }}
+        
+            JOptionPane.showMessageDialog(rootPane,"SAVED INFO");
+            new login().setVisible(true);
+
+        }
     } catch (Exception e) {
     }
 }
@@ -126,6 +134,7 @@ private void resetActionPerformed(ActionEvent evt) {
     try {
         uname1.setText(null);
         passwd.setText(null);
+        name1.setText(null);
 
     } catch (Exception e) {
     }
@@ -135,6 +144,8 @@ private void passwdActionPerformed(ActionEvent evt) {
 }
 
 private void uname1ActionPerformed(ActionEvent evt) {
+}
+private void name1ActionPerformed(ActionEvent evt) {
 }
 
 public class setVisible {
