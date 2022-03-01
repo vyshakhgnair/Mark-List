@@ -100,10 +100,3 @@ class page_out extends JFrame {
     }
 }
 
-
-public class pageout {
-    public static void main(String[] args)
-    {
-        page_out p =new page_out();
-    }
-}

@@ -1,3 +1,4 @@
+
 import  java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -52,12 +53,4 @@ class Mark extends JFrame
 
     }
 
-}
-
-public class marklist
-{
-    public static void main(String[] args)
-    {
-        Mark m=new Mark();
-    }
 }

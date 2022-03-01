@@ -1,7 +1,9 @@
+
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.JOptionPane.*;
 
 class stdform extends JFrame {
     JLabel nm, m1, m2, m3, m4, m5;
@@ -95,12 +97,5 @@ class stdform extends JFrame {
         setLayout(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-}
-
-public class form {
-    public static void main(String[] args) {
-        
-        stdform f = new stdform();
     }
 }
