@@ -7,10 +7,10 @@ import java.sql.*;
 
 public class db_connect {
     static Connection con = null;
+    Statement st = null;
 
     public db_connect() {
 
-        Statement st = null;
         try { // connects to db database
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/marklist", "root", "");
@@ -32,7 +32,7 @@ public class db_connect {
 
     }
 
-    public Boolean addIntoTable(String regno, String name1, String mark1, String mark2, String mark3,
+    public Boolean addMarks(String regno, String name1, String mark1, String mark2, String mark3,
             String mark4,
             String mark5) {
 
@@ -57,5 +57,32 @@ public class db_connect {
             return false;
         }
 
+    }
+
+    public int[] searchTable(String regno) {
+
+        ResultSet rs = null;
+        int[] marks;
+        marks = new int[5];
+
+        try {
+            rs = st.executeQuery("SELECT mark1,mark2,mark3,mark4,mark5 FROM marklist WHERE regno = " + regno + ";");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        try {
+            while (rs.next()) {
+                marks[0] = Integer.parseInt(rs.getString("mark1"));
+                marks[1] = Integer.parseInt(rs.getString("mark2"));
+                marks[2] = Integer.parseInt(rs.getString("mark3"));
+                marks[3] = Integer.parseInt(rs.getString("mark4"));
+                marks[4] = Integer.parseInt(rs.getString("mark5"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return marks;
     }
 }

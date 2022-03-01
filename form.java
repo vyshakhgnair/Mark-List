@@ -98,6 +98,7 @@ class stdform extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         submit.addActionListener(this);
+        srch.addActionListener(this);
 
     }
 
@@ -108,7 +109,7 @@ class stdform extends JFrame implements ActionListener {
 
         getName = nm1.getText();
 
-        // getPass = p.getText();
+        boolean check;
 
         sub1 = mt1.getText();
         sub2 = mt2.getText();
@@ -118,23 +119,37 @@ class stdform extends JFrame implements ActionListener {
 
         if (ae.getSource() == submit) {
 
-            datab.addIntoTable(getRegno, getName, sub1, sub2, sub3, sub4, sub5); // sends value to
-                                                                                 // addIntoTable()
-                                                                                 // method in
-                                                                                 // db_connect.java
+            check = datab.addMarks(getRegno, getName, sub1, sub2, sub3, sub4, sub5);
 
-            if (ae.getSource() == srch) {
-                regt.setText("text");
+            if (check == false) {
+                regt.setText("Invalid Number");
             }
 
         }
 
+        if (ae.getSource() == srch) {
+            int[] marks = new int[5];
+            // Boolean check;
+
+            getRegno = regt.getText();
+
+            marks = datab.searchTable(getRegno);
+
+            mt1.setText(Integer.toString(marks[0]));
+            mt2.setText(Integer.toString(marks[1]));
+            mt3.setText(Integer.toString(marks[2]));
+            mt4.setText(Integer.toString(marks[3]));
+            mt5.setText(Integer.toString(marks[4]));
+
+        }
+
     }
+
 }
 
 public class form {
     public static void main(String[] args) {
 
-        stdform f = new stdform();
+        new stdform();
     }
 }
