@@ -12,7 +12,7 @@ class signup extends JFrame {
     Container c;
 
  signup() {
-        super(" LOGIN ");
+        super(" SIGNUP ");
         name = new JLabel("NAME");
         uname = new JLabel("USERNAME");
         pass = new JLabel("PASSWORD");
