@@ -4,8 +4,3 @@ public class app  {
     {
         
         page_out p=new page_out();
-
-        
-        
-    }
-}
